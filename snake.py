@@ -1,19 +1,19 @@
 import time
 import os
+import keyboard
 
 board = [20, 20]
-body = [[10, 10],[10, 9],[10, 8]]
+body = [[10, 10],[10, 9],[10,8]]
 length = 3
 vector = [1, "up"]
 
-def isBody(x, y):
+def isBody(x,y):
     for i in range(length):
         if body[i][0] == x and body[i][1] == y:
             return True
 def motion():
-    for i in range(length):
-        body[i][1] += 1 #body[i][1] + 1
-
+    body.append([body[length - 1][0], body[length - 1][1] - 1]) 
+    body.remove(body[0])
 while True:
     os.system('clear')
     for verti in range(board[1]):
